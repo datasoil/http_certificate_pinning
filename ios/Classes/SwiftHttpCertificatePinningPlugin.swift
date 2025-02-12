@@ -5,9 +5,7 @@ import Alamofire
 
 public class SwiftHttpCertificatePinningPlugin: NSObject, FlutterPlugin {
 
-    let session = Session.default
-    var fingerprints: Array<String>?
-    var flutterResult: FlutterResult?
+    let session = Session.default;
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "http_certificate_pinning", binaryMessenger: registrar.messenger())
@@ -53,8 +51,6 @@ public class SwiftHttpCertificatePinningPlugin: NSObject, FlutterPlugin {
             )
             return
         }
-
-        self.fingerprints = fingerprints
 
         var timeout = 60
         if let timeoutArg = args["timeout"] as? Int {
